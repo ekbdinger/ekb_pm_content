@@ -21,8 +21,8 @@ function ekb_pm_content_node_info() {
       'description' => t('Project Management Documents'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'has_body' => '1',
-      'body_label' => t('Body'),
+      'has_body' => '0',
+      'body_label' => '',
       'min_word_count' => '0',
       'help' => '',
     ),
@@ -39,4 +39,13 @@ function ekb_pm_content_node_info() {
     ),
   );
   return $items;
+}
+
+/**
+ * Implementation of hook_views_api().
+ */
+function ekb_pm_content_views_api() {
+  return array(
+    'api' => '2',
+  );
 }
