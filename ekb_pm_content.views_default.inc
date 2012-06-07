@@ -228,13 +228,49 @@ function ekb_pm_content_views_default_views() {
       'field' => 'timestamp',
       'relationship' => 'none',
     ),
+    'name_1' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '<h2>[name_1]</h2>',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 0,
+      'link_to_taxonomy' => 0,
+      'exclude' => 1,
+      'id' => 'name_1',
+      'table' => 'term_data',
+      'field' => 'name',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('sorts', array(
-    'title' => array(
+    'name' => array(
       'order' => 'ASC',
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
       'override' => array(
         'button' => 'Override',
       ),
@@ -260,33 +296,60 @@ function ekb_pm_content_views_default_views() {
     ),
   ));
   $handler->override_option('access', array(
-    'type' => 'none',
+    'type' => 'role',
+    'role' => array(
+      3 => 3,
+      32 => 32,
+    ),
   ));
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
   $handler->override_option('title', 'Project Management Documents');
-  $handler->override_option('header', '<br/>
-
+  $handler->override_option('header', '
 ');
   $handler->override_option('header_format', '2');
   $handler->override_option('header_empty', 0);
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
-    'grouping' => '',
+    'grouping' => 'name_1',
     'override' => 1,
     'sticky' => 0,
     'order' => 'asc',
     'summary' => '',
     'columns' => array(
+      'title' => 'title',
       'field_pm_file_data' => 'field_pm_file_data',
       'field_pm_file_fid' => 'field_pm_file_fid',
+      'timestamp' => 'timestamp',
+      'name' => 'name',
+      'timestamp_1' => 'timestamp_1',
+      'name_1' => 'name_1',
     ),
     'info' => array(
+      'title' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
       'field_pm_file_data' => array(
         'separator' => '',
       ),
       'field_pm_file_fid' => array(
+        'separator' => '',
+      ),
+      'timestamp' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'name' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'timestamp_1' => array(
+        'separator' => '',
+      ),
+      'name_1' => array(
+        'sortable' => 0,
         'separator' => '',
       ),
     ),
@@ -529,6 +592,13 @@ function ekb_pm_content_views_default_views() {
   $handler->override_option('header_format', '2');
   $handler->override_option('header_empty', 0);
   $handler->override_option('use_pager', '1');
+  $handler->override_option('row_plugin', 'node');
+  $handler->override_option('row_options', array(
+    'relationship' => 'none',
+    'build_mode' => 'teaser',
+    'links' => 1,
+    'comments' => 0,
+  ));
   $handler->override_option('exposed_block', TRUE);
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'pm/news');
