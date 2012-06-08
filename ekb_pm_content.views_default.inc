@@ -294,6 +294,27 @@ function ekb_pm_content_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
+    'keys' => array(
+      'operator' => 'optional',
+      'value' => '',
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'keys_op',
+        'identifier' => 'keys',
+        'label' => 'Search Documents:',
+        'optional' => 1,
+        'remember' => 0,
+      ),
+      'id' => 'keys',
+      'table' => 'search_index',
+      'field' => 'keys',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'role',
@@ -328,7 +349,7 @@ function ekb_pm_content_views_default_views() {
     ),
     'info' => array(
       'title' => array(
-        'sortable' => 0,
+        'sortable' => 1,
         'separator' => '',
       ),
       'field_pm_file_data' => array(
@@ -338,11 +359,11 @@ function ekb_pm_content_views_default_views() {
         'separator' => '',
       ),
       'timestamp' => array(
-        'sortable' => 0,
+        'sortable' => 1,
         'separator' => '',
       ),
       'name' => array(
-        'sortable' => 0,
+        'sortable' => 1,
         'separator' => '',
       ),
       'timestamp_1' => array(
@@ -355,6 +376,7 @@ function ekb_pm_content_views_default_views() {
     ),
     'default' => '-1',
   ));
+  $handler->override_option('exposed_block', TRUE);
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'pm/docs');
   $handler->override_option('menu', array(
