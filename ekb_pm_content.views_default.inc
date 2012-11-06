@@ -232,7 +232,7 @@ function ekb_pm_content_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '<h2>[name_1]</h2>',
+        'text' => '<br /><h2>[name_1]</h2>',
         'make_link' => 0,
         'path' => '',
         'absolute' => 0,
@@ -320,6 +320,7 @@ function ekb_pm_content_views_default_views() {
     'type' => 'role',
     'role' => array(
       3 => 3,
+      5 => 5,
       32 => 32,
     ),
   ));
@@ -331,6 +332,9 @@ function ekb_pm_content_views_default_views() {
 ');
   $handler->override_option('header_format', '2');
   $handler->override_option('header_empty', 0);
+  $handler->override_option('footer_format', '2');
+  $handler->override_option('footer_empty', 0);
+  $handler->override_option('items_per_page', 100);
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
     'grouping' => 'name_1',
@@ -599,11 +603,29 @@ function ekb_pm_content_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'role',
     'role' => array(
       3 => 3,
+      5 => 5,
       32 => 32,
     ),
   ));
